@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SVG Defsの切り替え不具合</title>
+      <style>
+        .item01.is-hide {
+          display: none;
+        }
+      </style>
+    </head>
+    <body>
+      <div>
+        <p>01</p>
+        <svg class="item01" width="120" height="120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="red"/>
+              <stop offset="50%" stop-color="black" stop-opacity="0"/>
+              <stop offset="100%" stop-color="blue"/>
+            </linearGradient>
+          </defs>
+          <rect class="rect" x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#Gradient1)" stroke="#000"/>
+        </svg>
+      </div>
+      <div>
+        <p>02</p>
+        <svg class="item02" width="120" height="120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="red"/>
+              <stop offset="50%" stop-color="black" stop-opacity="0"/>
+              <stop offset="100%" stop-color="blue"/>
+            </linearGradient>
+          </defs>
+          <rect class="rect" x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#Gradient1)" stroke="#000"/>
+        </svg>
+      </div>
+      <button class="toggleButton">01のSVGにdisplay: none;を設定</button>
+      <script>
+        function toggle() {
+          const button = document.querySelector('.toggleButton');
+          const element = document.querySelector('.item01');
+          button.addEventListener('click', () => {
+            element.classList.add('is-hide');
+          })
+        }
+        toggle();
+      </script>
+    </body>
+    </html>
+  </body>
+</html>
